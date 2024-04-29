@@ -1,0 +1,259 @@
+{% extends "auth/login.html" %}
+{% load i18n %}
+{% load static %}
+{% block main %}
+<div class="flex justify-center items-center flex-col bg-white shadow-lg p-8 rounded-lg w-1/2 max-mobile:w-full max-mobile:h-screen">
+    <div class="flex w-full max-w-48 bg-white rounded-lg h-20 justify-center items-center">
+        <img src="{% static 'icons/nameF.svg' %}" height="72px" width="96px" />
+        <hr class="h-16 w-[2px] mx-1" />
+        <img src="{% static 'icons/logoF.svg' %}" height="48px" width="48px" />
+    </div>
+    <form method="post" class="w-full">
+        {% csrf_token %}
+        <div class="flex flex-col gap-2">
+            <div>
+                <input type="text" required
+                    class="w-full rounded-lg border-none bg-main1 shadow-inner p-3 text-lg placeholder:text-center"
+                    name="fname" placeholder="{% trans 'الاسم الاول' %}">
+            </div>
+            <div>
+                <input type="text" required
+                    class="w-full rounded-lg border-none bg-main1 shadow-inner p-3 text-lg placeholder:text-center"
+                    name="lname" placeholder="{% trans 'الاسم الاخير' %}">
+            </div>
+            <div>
+                <select class="w-full h-full rounded-lg border-none bg-main1 shadow-inner text-center py-2 text-lg"
+                    name="nation">
+                    <option value="" disabled selected>{% trans 'إختر الجنسية' %}</option>
+                    <option>{% trans 'أفغانستان' %}</option>
+                    <option>{% trans 'ألبانيا' %}</option>
+                    <option>{% trans 'الجزائر' %}</option>
+                    <option>{% trans 'أندورا' %}</option>
+                    <option>{% trans 'أنغولا' %}</option>
+                    <option>{% trans 'أنتيغوا وباربودا' %}</option>
+                    <option>{% trans 'الأرجنتين' %}</option>
+                    <option>{% trans 'أرمينيا' %}</option>
+                    <option>{% trans 'أستراليا' %}</option>
+                    <option>{% trans 'النمسا' %}</option>
+                    <option>{% trans 'أذربيجان' %}</option>
+                    <option>{% trans 'البهاما' %}</option>
+                    <option>{% trans 'البحرين' %}</option>
+                    <option>{% trans 'بنغلاديش' %}</option>
+                    <option>{% trans 'باربادوس' %}</option>
+                    <option>{% trans 'بيلاروسيا' %}</option>
+                    <option>{% trans 'بلجيكا' %}</option>
+                    <option>{% trans 'بليز' %}</option>
+                    <option>{% trans 'بنين' %}</option>
+                    <option>{% trans 'بوتان' %}</option>
+                    <option>{% trans 'بوليفيا' %}</option>
+                    <option>{% trans 'البوسنة والهرسك' %}</option>
+                    <option>{% trans 'بوتسوانا' %}</option>
+                    <option>{% trans 'البرازيل' %}</option>
+                    <option>{% trans 'بروناي' %}</option>
+                    <option>{% trans 'بلغاريا' %}</option>
+                    <option>{% trans 'بوركينا فاسو' %}</option>
+                    <option>{% trans 'بوروندي' %}</option>
+                    <option>{% trans 'كمبوديا' %}</option>
+                    <option>{% trans 'الكاميرون' %}</option>
+                    <option>{% trans 'كندا' %}</option>
+                    <option>{% trans 'الرأس الأخضر' %}</option>
+                    <option>{% trans 'جمهورية أفريقيا الوسطى' %}</option>
+                    <option>{% trans 'تشاد' %}</option>
+                    <option>{% trans 'تشيلي' %}</option>
+                    <option>{% trans 'الصين' %}</option>
+                    <option>{% trans 'كولومبيا' %}</option>
+                    <option>{% trans 'جزر القمر' %}</option>
+                    <option>{% trans 'كوستاريكا' %}</option>
+                    <option>{% trans 'ساحل العاج' %}</option>
+                    <option>{% trans 'كرواتيا' %}</option>
+                    <option>{% trans 'كوبا' %}</option>
+                    <option>{% trans 'قبرص' %}</option>
+                    <option>{% trans 'التشيك' %}</option>
+                    <option>{% trans 'جمهورية الكونغو الديمقراطية' %}</option>
+                    <option>{% trans 'الدنمارك' %}</option>
+                    <option>{% trans 'جيبوتي' %}</option>
+                    <option>{% trans 'دومينيكا' %}</option>
+                    <option>{% trans 'جمهورية الدومينيكان' %}</option>
+                    <option>{% trans 'تيمور الشرقية' %}</option>
+                    <option>{% trans 'الإكوادور' %}</option>
+                    <option>{% trans 'مصر' %}</option>
+                    <option>{% trans 'السلفادور' %}</option>
+                    <option>{% trans 'غينيا الاستوائية' %}</option>
+                    <option>{% trans 'إريتريا' %}</option>
+                    <option>{% trans 'إستونيا' %}</option>
+                    <option>{% trans 'إثيوبيا' %}</option>
+                    <option>{% trans 'فيجي' %}</option>
+                    <option>{% trans 'فنلندا' %}</option>
+                    <option>{% trans 'فرنسا' %}</option>
+                    <option>{% trans 'الغابون' %}</option>
+                    <option>{% trans 'غامبيا' %}</option>
+                    <option>{% trans 'جورجيا' %}</option>
+                    <option>{% trans 'ألمانيا' %}</option>
+                    <option>{% trans 'غانا' %}</option>
+                    <option>{% trans 'اليونان' %}</option>
+                    <option>{% trans 'جرينادا' %}</option>
+                    <option>{% trans 'غواتيمالا' %}</option>
+                    <option>{% trans 'غينيا' %}</option>
+                    <option>{% trans 'غينيا بيساو' %}</option>
+                    <option>{% trans 'غويانا' %}</option>
+                    <option>{% trans 'هايتي' %}</option>
+                    <option>{% trans 'هندوراس' %}</option>
+                    <option>{% trans 'المجر' %}</option>
+                    <option>{% trans 'آيسلندا' %}</option>
+                    <option>{% trans 'الهند' %}</option>
+                    <option>{% trans 'إندونيسيا' %}</option>
+                    <option>{% trans 'إيران' %}</option>
+                    <option>{% trans 'العراق' %}</option>
+                    <option>{% trans 'جمهورية أيرلندا' %}</option>
+                    <option>{% trans 'فلسطين' %}</option>
+                    <option>{% trans 'إيطاليا' %}</option>
+                    <option>{% trans 'جامايكا' %}</option>
+                    <option>{% trans 'اليابان' %}</option>
+                    <option>{% trans 'الأردن' %}</option>
+                    <option>{% trans 'كازاخستان' %}</option>
+                    <option>{% trans 'كينيا' %}</option>
+                    <option>{% trans 'كيريباتي' %}</option>
+                    <option>{% trans 'الكويت' %}</option>
+                    <option>{% trans 'قرغيزستان' %}</option>
+                    <option>{% trans 'لاوس' %}</option>
+                    <option>{% trans 'لاوس' %}</option>
+                    <option>{% trans 'لاتفيا' %}</option>
+                    <option>{% trans 'لبنان' %}</option>
+                    <option>{% trans 'ليسوتو' %}</option>
+                    <option>{% trans 'ليبيريا' %}</option>
+                    <option>{% trans 'ليبيا' %}</option>
+                    <option>{% trans 'ليختنشتاين' %}</option>
+                    <option>{% trans 'ليتوانيا' %}</option>
+                    <option>{% trans 'لوكسمبورغ' %}</option>
+                    <option>{% trans 'مدغشقر' %}</option>
+                    <option>{% trans 'مالاوي' %}</option>
+                    <option>{% trans 'ماليزيا' %}</option>
+                    <option>{% trans 'جزر المالديف' %}</option>
+                    <option>{% trans 'مالي' %}</option>
+                    <option>{% trans 'مالطا' %}</option>
+                    <option>{% trans 'جزر مارشال' %}</option>
+                    <option>{% trans 'موريتانيا' %}</option>
+                    <option>{% trans 'موريشيوس' %}</option>
+                    <option>{% trans 'المكسيك' %}</option>
+                    <option>{% trans 'مايكرونيزيا' %}</option>
+                    <option>{% trans 'مولدوفا' %}</option>
+                    <option>{% trans 'موناكو' %}</option>
+                    <option>{% trans 'منغوليا' %}</option>
+                    <option>{% trans 'الجبل الأسود' %}</option>
+                    <option>{% trans 'المغرب' %}</option>
+                    <option>{% trans 'موزمبيق' %}</option>
+                    <option>{% trans 'بورما' %}</option>
+                    <option>{% trans 'ناميبيا' %}</option>
+                    <option>{% trans 'ناورو' %}</option>
+                    <option>{% trans 'نيبال' %}</option>
+                    <option>{% trans 'هولندا' %}</option>
+                    <option>{% trans 'نيوزيلندا' %}</option>
+                    <option>{% trans 'نيكاراجوا' %}</option>
+                    <option>{% trans 'النيجر' %}</option>
+                    <option>{% trans 'نيجيريا' %}</option>
+                    <option>{% trans 'كوريا الشمالية' %}</option>
+                    <option>{% trans 'النرويج' %}</option>
+                    <option>{% trans 'سلطنة عمان' %}</option>
+                    <option>{% trans 'باكستان' %}</option>
+                    <option>{% trans 'بالاو' %}</option>
+                    <option>{% trans 'بنما' %}</option>
+                    <option>{% trans 'بابوا غينيا الجديدة' %}</option>
+                    <option>{% trans 'باراغواي' %}</option>
+                    <option>{% trans 'بيرو' %}</option>
+                    <option>{% trans 'الفلبين' %}</option>
+                    <option>{% trans 'بولندا' %}</option>
+                    <option>{% trans 'البرتغال' %}</option>
+                    <option>{% trans 'قطر' %}</option>
+                    <option>{% trans 'جمهورية الكونغو' %}</option>
+                    <option>{% trans 'جمهورية مقدونيا' %}</option>
+                    <option>{% trans 'رومانيا' %}</option>
+                    <option>{% trans 'روسيا' %}</option>
+                    <option>{% trans 'رواندا' %}</option>
+                    <option>{% trans 'سانت كيتس ونيفيس' %}</option>
+                    <option>{% trans 'سانت لوسيا' %}</option>
+                    <option>{% trans 'سانت فنسينت والجرينادينز' %}</option>
+                    <option>{% trans 'ساموا' %}</option>
+                    <option>{% trans 'سان مارينو' %}</option>
+                    <option>{% trans 'ساو تومي وبرينسيب' %}</option>
+                    <option>{% trans 'السعودية' %}</option>
+                    <option>{% trans 'السنغال' %}</option>
+                    <option>{% trans 'صربيا' %}</option>
+                    <option>{% trans 'سيشيل' %}</option>
+                    <option>{% trans 'سيراليون' %}</option>
+                    <option>{% trans 'سنغافورة' %}</option>
+                    <option>{% trans 'سلوفاكيا' %}</option>
+                    <option>{% trans 'سلوفينيا' %}</option>
+                    <option>{% trans 'جزر سليمان' %}</option>
+                    <option>{% trans 'الصومال' %}</option>
+                    <option>{% trans 'جنوب أفريقيا' %}</option>
+                    <option>{% trans 'كوريا الجنوبية' %}</option>
+                    <option>{% trans 'جنوب السودان' %}</option>
+                    <option>{% trans 'إسبانيا' %}</option>
+                    <option>{% trans 'سريلانكا' %}</option>
+                    <option>{% trans 'السودان' %}</option>
+                    <option>{% trans 'سورينام' %}</option>
+                    <option>{% trans 'سوازيلاند' %}</option>
+                    <option>{% trans 'السويد' %}</option>
+                    <option>{% trans 'سويسرا' %}</option>
+                    <option>{% trans 'سوريا' %}</option>
+                    <option>{% trans 'طاجيكستان' %}</option>
+                    <option>{% trans 'تنزانيا' %}</option>
+                    <option>{% trans 'تايلاند' %}</option>
+                    <option>{% trans 'توغو' %}</option>
+                    <option>{% trans 'تونجا' %}</option>
+                    <option>{% trans 'ترينيداد وتوباغو' %}</option>
+                    <option>{% trans 'تونس' %}</option>
+                    <option>{% trans 'تركيا' %}</option>
+                    <option>{% trans 'تركمانستان' %}</option>
+                    <option>{% trans 'توفالو' %}</option>
+                    <option>{% trans 'أوغندا' %}</option>
+                    <option>{% trans 'أوكرانيا' %}</option>
+                    <option>{% trans 'الإمارات العربية المتحدة' %}</option>
+                    <option>{% trans 'المملكة المتحدة' %}</option>
+                    <option>{% trans 'الولايات المتحدة' %}</option>
+                    <option>{% trans 'أوروغواي' %}</option>
+                    <option>{% trans 'أوزبكستان' %}</option>
+                    <option>{% trans 'فانواتو' %}</option>
+                    <option>{% trans 'فنزويلا' %}</option>
+                    <option>{% trans 'فيتنام' %}</option>
+                    <option>{% trans 'اليمن' %}</option>
+                    <option>{% trans 'زامبيا' %}</option>
+                    <option>{% trans 'زيمبابوي' %}</option>
+                </select>
+            </div>
+            <hr class="col-span-full">
+            <div class="col-span-full">
+                <input type="text" required
+                    class="w-full rounded-lg border-none bg-main1 shadow-inner p-3 text-lg placeholder:text-center"
+                    name="username" placeholder="{% trans 'البريد الالكتروني' %}">
+            </div>
+            <div class="col-span-full flex gap-2">
+                <input type="number" name="countryCode" value="966" required
+                    class="w-1/6 bg-main1 border-none shadow-inner p-3 text-lg rounded-lg">
+                <input type="text" maxlength="9" required
+                    class="w-5/6 bg-main1 shadow-inner p-3 border-none rounded-lg text-lg placeholder:text-center"
+                    name="phone" placeholder="{% trans 'رقم الهاتف الشخصي' %}">
+            </div>
+            <div class="col-span-full">
+                <input type="password" required pattern=".{8,}"
+                    class=" w-full rounded-lg border-none bg-main1 shadow-inner p-3 text-lg placeholder:text-center"
+                    name="password1" placeholder="{% trans 'كلمة المرور' %}">
+            </div>
+            <div class="col-span-full">
+                <input type="password" required pattern=".{8,}"
+                    class=" w-full rounded-lg border-none bg-main1 shadow-inner p-3 text-lg placeholder:text-center"
+                    name="password2" placeholder="{% trans 'تاكيد كلمة المرور' %}">
+            </div>
+        </div>
+        <div class="my-2">
+            <button type="submit"
+                class="flex w-full justify-center rounded-md bg-main3 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-main3-t focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main4">
+                {% trans 'تسجيل' %}
+            </button>
+        </div>
+    </form>
+    <div>
+        <a class="hover:text-main2" href="{% url 'login' %}">{% trans 'تسجيل الدخول' %}</a>
+    </div>
+</div>
+{% endblock main %}
